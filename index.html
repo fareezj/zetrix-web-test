@@ -20,10 +20,10 @@
       document.getElementById("test").innerHTML = "Calling Auth";
       zetrixConnect
         .auth()
-        .then((res) {
+        .then((res) => {
         Print.postMessage(JSON.stringify(res));
-        document.getElementById("test2").innerHTML = JSON.stringify(res);
-        console.log(res);
+//         document.getElementById("test2").innerHTML = JSON.stringify(res);
+//         console.log(res);
       })
         .catch((e) => {
           console.log(e);
