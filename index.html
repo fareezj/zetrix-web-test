@@ -21,6 +21,7 @@
       zetrixConnect
         .auth()
         .then((res) => {
+        Print.postMessage(JSON.stringify(res));
         document.getElementById("test2").innerHTML = JSON.stringify(res);
         console.log(res);
       })
