@@ -21,9 +21,9 @@
       zetrixConnect
         .auth()
         .then((res) => {
-        Print.postMessage(JSON.stringify(res));
-//         document.getElementById("test2").innerHTML = JSON.stringify(res);
-//         console.log(res);
+        Flutter.postMessage(JSON.stringify(res));
+        document.getElementById("test2").innerHTML = JSON.stringify(res);
+        console.log(res);
       })
         .catch((e) => {
           console.log(e);
