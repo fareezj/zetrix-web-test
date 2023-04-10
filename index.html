@@ -2,8 +2,7 @@
 <html>
   <body>
     <h1>Zetrix Wallet Integration (TEST)</h1>
-    <button onclick="sign()">Sign</button>
-    <button onclick="test()">Auth Wallet</button>
+
   </body>
   <script type="module">
     import ZetrixWalletConnect from "https://cdn.skypack.dev/zetrix-connect-wallet-sdk@1.1.3";
@@ -42,10 +41,25 @@
           document.getElementById("test2").innerHTML = JSON.stringify(e);
         });
     };
+    
+    signMessage.addEventListener('click', () => {
+      sign();
+      console.log('sign message clicked');
+    });
+    
+    connectWallet.addEventListener('click', () => {
+      test();
+      console.log('connect wallet clicked');
+    });
 
   </script>
   <span id="test">No Update</span
   ><br />
   <span id="test2">No Update</span>
+  <br />
   <span id="test3">No Update</span>
+  <br />
+  <button id="signMessage">Sign</button>
+  <br />
+  <button id="connectWallet">Auth Wallet</button>
 </html>
