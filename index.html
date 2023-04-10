@@ -14,10 +14,12 @@
     
     const sign = () => {
       document.getElementById("test3").innerHTML = "Signing Now";
-      zetrixConnect.signMessage({ message: "Hi Im here" }).then((res) => {
-        document.getElementById("test3").innerHTML = JSON.stringify(res);
-        console.log(res);
-      }).catch((e) => console.log(e.toString());
+      zetrixConnect.signMessage({ message: "Hi Im here" })
+        .then((res) => {
+          document.getElementById("test3").innerHTML = JSON.stringify(res);
+          console.log(res);
+        })
+        .catch((e) => console.log(e.toString()));
     };
 
     const test = () => {
