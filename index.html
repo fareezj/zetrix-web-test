@@ -19,7 +19,7 @@
     
     const sign = () => {
       document.getElementById("test3").innerHTML = "Signing Now";
-      zetrixConnect.signMessage({ message: "Hi Im here" })
+      zetrixConnect.signMessage({ message: "Click \"Sign\" to sign in. No password needed!\nThis request will not trigger a blockchain transaction or cost any gas fees.\nWalletAddress:\nZTX3eKfykPRZuQJFW3qFt38nhru9bmoEzCGtP\nblob:\nd05fa5d0f9e744a84137d51f87ef658d16cc51d902f017ead58957434a62ae97" })
         .then((res) => {
           document.getElementById("test3").innerHTML = JSON.stringify(res);
           console.log(JSON.stringify(res));
