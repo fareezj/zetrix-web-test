@@ -23,7 +23,7 @@
           document.getElementById("test3").innerHTML = JSON.stringify(res);
           console.log(JSON.stringify(res));
         })
-        .catch((e) => console.log('ERROR:' + e.toString()));
+        .catch((e) => console.log('ERROR: ' + JSON.stringify(e)));
     };
 
     const test = () => {
