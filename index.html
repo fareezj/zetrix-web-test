@@ -15,6 +15,14 @@
     });
 
     zetrixConnect.connect(options);
+    
+        const sign = () => {
+      document.getElementById("test3").innerHTML = "Signing Now";
+      zetrixConnect.signMessage({ message: "Hi Im here" }).then((res) => {
+        document.getElementById("test3").innerHTML = JSON.stringify(res);
+        console.log(res);
+      });
+    };
 
     const test = () => {
       document.getElementById("test").innerHTML = "Calling Auth";
@@ -31,9 +39,10 @@
         });
     };
 
-    setTimeout(test, 1000);
+    setTimeout(sign, 1000);
   </script>
   <span id="test">No Update</span
   ><br />
   <span id="test2">No Update</span>
+  <span id="test3">No Update</span>
 </html>
