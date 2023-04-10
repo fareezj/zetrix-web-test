@@ -9,9 +9,11 @@
   var zetrixConnect = new ZetrixWalletConnect({
     qrcode: false,
   });
+    
+    
 
 
-    zetrixConnect.connect(options);
+    zetrixConnect.connect();
     
         const sign = () => {
       document.getElementById("test3").innerHTML = "Signing Now";
