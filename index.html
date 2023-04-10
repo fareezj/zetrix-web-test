@@ -5,12 +5,16 @@
   </body>
   <script type="module">
     import ZetrixWalletConnect from "https://cdn.skypack.dev/zetrix-connect-wallet-sdk@1.1.3";
+    
+    const options = {
+      bridge: 'wss://test-wscw.zetrix.com'
+    }
 
     var zetrixConnect = new ZetrixWalletConnect({
       qrcode: false,
     });
     
-    zetrixConnect.connect();
+    zetrixConnect.connect(options);
     
     const sign = () => {
       document.getElementById("test3").innerHTML = "Signing Now";
