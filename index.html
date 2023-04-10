@@ -21,9 +21,9 @@
       zetrixConnect.signMessage({ message: "Hi Im here" })
         .then((res) => {
           document.getElementById("test3").innerHTML = JSON.stringify(res);
-          console.log(res);
+          console.log(JSON.stringify(res));
         })
-        .catch((e) => console.log(e.toString()));
+        .catch((e) => console.log('ERROR:' + e.toString()));
     };
 
     const test = () => {
