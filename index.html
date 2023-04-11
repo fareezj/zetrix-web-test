@@ -83,8 +83,9 @@
     };
 
     const login = async (loginData) => {
+        console.log('LOGGING IN...');
         const url = 'https://ssivc-api-dev.myegdev.com/api/login';
-
+    
         const options = {
             method: 'POST',
             headers: {
@@ -96,6 +97,7 @@
         try {
             await fetch(url, options)
                 .then(json => {
+                    console.log('LOGIN SUCCESS');
                     console.log(JSON.stringify(json));
                 })
         } catch (error) {
