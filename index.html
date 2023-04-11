@@ -97,7 +97,7 @@
                 .then(response => response.json())
                 .then(json => {
                     console.log(JSON.stringify(json));
-                    document.getElementById("accessToken").innerHTML = JSON.stringify(json);
+                    document.getElementById("accessToken").innerHTML = json.data;
                 })
         } catch (error) {
             console.error(error);
