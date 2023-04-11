@@ -76,7 +76,7 @@
                     blob: signMessage,
                     address: res.data.address
                 };
-                login(loginData);
+                setTimeout(() => login(loginData), 3000);
             })
             .catch((e) => console.log('ERROR: ' + JSON.stringify(e)));
     };
@@ -98,7 +98,7 @@
                 .then(json => {
                     console.log(json.data);
                     document.getElementById("accessToken").innerHTML = json.data;
-                    setTimeout(()=>{}, 2000);
+                    
                 })
         } catch (error) {
             console.error(error);
