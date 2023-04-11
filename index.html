@@ -79,7 +79,7 @@
 //                 await login(loginData);
                 document.getElementById("signBlob").innerHTML = res.data.signData;
                 document.getElementById("publicKey").innerHTML = res.data.publicKey;
-                document.getElementById("blob").innerHTML = JSON.stringify({ message: signMessage });
+                document.getElementById("blob").innerHTML = signMessage.toString();
             })
             .catch((e) => console.log('ERROR: ' + JSON.stringify(e)));
     };
