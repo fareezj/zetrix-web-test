@@ -32,7 +32,7 @@
       zetrixConnect
         .auth()
         .then((res) => {
-        Flutter.postMessage(JSON.stringify(res));
+        //Flutter.postMessage(JSON.stringify(res));
         document.getElementById("test2").innerHTML = JSON.stringify(res);
         const walletAddress = res.data.address;
         preAuth(walletAddress)
