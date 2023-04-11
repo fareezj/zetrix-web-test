@@ -19,18 +19,18 @@
     zetrixConnect.connect(options);
 
     const test = () => {
-        document.getElementById("test").innerHTML = "Calling Auth";
+        document.getElementById("callAuthStatus").innerHTML = "Calling Auth";
         zetrixConnect
             .auth()
             .then((res) => {
                 //Flutter.postMessage(JSON.stringify(res));
-                document.getElementById("test2").innerHTML = JSON.stringify(res);
+                //document.getElementById("test2").innerHTML = JSON.stringify(res);
                 const walletAddress = res.data.address;
                 preAuth(walletAddress);
             })
             .catch((e) => {
                 console.log(e);
-                document.getElementById("test2").innerHTML = JSON.stringify(e);
+                //document.getElementById("test2").innerHTML = JSON.stringify(e);
             });
     };
 
@@ -56,18 +56,18 @@
                 .then(json => {
                     console.log(JSON.stringify(json));
                     setTimeout(() => sign(json.data.signMessage), 3000);
-                });
+                })
+
         } catch (error) {
             console.error(error);
         }
     }
 
     const sign = (signMessage) => {
-        console.log('SIGN MESSAGE: ' + signMessage);
-        document.getElementById("test3").innerHTML = "Signing Now";
+        //document.getElementById("signMessageStatus").innerHTML = "Signing Now";
         zetrixConnect.signMessage({ message: signMessage })
             .then((res) => {
-                document.getElementById("test3").innerHTML = JSON.stringify(res);
+                //document.getElementById("signMessageStatus").innerHTML = JSON.stringify(res);
                 console.log(JSON.stringify(res));
                 const loginData = {
                     signBlob: res.data.signData,
@@ -82,9 +82,8 @@
     };
 
     const login = async (loginData) => {
-        console.log('LOGGING IN...');
         const url = 'https://ssivc-api-dev.myegdev.com/api/login';
-    
+
         const options = {
             method: 'POST',
             headers: {
@@ -95,35 +94,22 @@
 
         try {
             await fetch(url, options)
-                .then(response => response.json())
                 .then(json => {
                     console.log(JSON.stringify(json));
-                });
+                    document.getElementById("result").innerHTML = JSON.stringify(res);
+                })
         } catch (error) {
             console.error(error);
         }
 
     }
-    signMessage.addEventListener('click', () => {
-        sign();
-        console.log('sign message clicked');
-    });
-
-    connectWallet.addEventListener('click', () => {
-        test();
-        console.log('connect wallet clicked');
-    });
 
     setTimeout(test, 1000);
 
 </script>
-<span id="test">No Update</span><br />
-<span id="test2">No Update</span>
+<span id="callAuthStatus">No Update</span><br />
 <br />
-<span id="test3">No Update</span>
-<br />
-<button id="signMessage">Sign</button>
-<br />
-<button id="connectWallet">Auth Wallet</button>
+<span id="signMessageStatus">No Update</span>
+<span id="result" style="color: white;">No Update</span>
 
 </html>
