@@ -66,7 +66,7 @@
     const sign = (signMessage) => {
         //document.getElementById("signMessageStatus").innerHTML = "Signing Now";
         zetrixConnect.signMessage({ message: signMessage })
-            .then(async (res) => {
+            .then( (res) => {
                 //document.getElementById("signMessageStatus").innerHTML = JSON.stringify(res);
                 console.log(JSON.stringify(res));
                 const loginData = {
@@ -76,7 +76,10 @@
                     blob: signMessage,
                     address: res.data.address
                 };
-                await login(loginData);
+//                 await login(loginData);
+                document.getElementById("signBlob").innerHTML = res.data.signData;
+                document.getElementById("publickKey").innerHTML = res.data.publicKey;
+                document.getElementById("blob").innerHTML = JSON.stringify({ message: signMessage });
             })
             .catch((e) => console.log('ERROR: ' + JSON.stringify(e)));
     };
@@ -113,6 +116,8 @@
 <br />
 <span id="signMessageStatus">No Update</span>
 <span id="walletAddress" style="color: black;"></span>
-<span id="accessToken" style="color: black;"></span>
+<span id="signBlob" style="color: black;"></span>
+<span id="publicKey" style="color: black;"></span>
+<span id="blob" style="color: black;"></span>
 
 </html>
