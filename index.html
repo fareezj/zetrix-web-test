@@ -64,9 +64,9 @@
       // Make the POST request
       fetch(url, options)
         .then(response => response.json())
-        .then(data => {
-          console.log(JSON.stringify(data));
-          sign(data.signMessage);
+        .then(json => {
+          console.log(JSON.stringify(json));
+          sign(json.data.signMessage);
         })
         .catch(error => console.error(error));
     }
