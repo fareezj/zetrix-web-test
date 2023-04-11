@@ -84,30 +84,30 @@
             .catch((e) => console.log('ERROR: ' + JSON.stringify(e)));
     };
 
-    const login = async (loginData) => {
-        const url = 'https://ssivc-api-dev.myegdev.com/api/login';
+//     const login = async (loginData) => {
+//         const url = 'https://ssivc-api-dev.myegdev.com/api/login';
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(loginData)
-        };
+//         const options = {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(loginData)
+//         };
 
-        try {
-            await fetch(url, options)
-                .then(response => response.json())
-                .then(json => {
-                    console.log(json.data);
-                    document.getElementById("accessToken").innerHTML = json.data;
+//         try {
+//             await fetch(url, options)
+//                 .then(response => response.json())
+//                 .then(json => {
+//                     console.log(json.data);
+//                     document.getElementById("accessToken").innerHTML = json.data;
                     
-                })
-        } catch (error) {
-            console.error(error);
-        }
+//                 })
+//         } catch (error) {
+//             console.error(error);
+//         }
 
-    }
+//     }
 
     setTimeout(test, 1000);
 
