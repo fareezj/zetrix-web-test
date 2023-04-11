@@ -22,11 +22,11 @@
         document.getElementById("callAuthStatus").innerHTML = "Calling Auth";
         zetrixConnect
             .auth()
-            .then((res) => {
+            .then(async(res) => {
                 //Flutter.postMessage(JSON.stringify(res));
                 document.getElementById("walletAddress").innerHTML = res.data.address;
                 const walletAddress = res.data.address;
-                preAuth(walletAddress);
+                await preAuth(walletAddress);
             })
             .catch((e) => {
                 console.log(e);
