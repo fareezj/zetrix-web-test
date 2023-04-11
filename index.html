@@ -24,7 +24,7 @@
             .auth()
             .then((res) => {
                 //Flutter.postMessage(JSON.stringify(res));
-                //document.getElementById("test2").innerHTML = JSON.stringify(res);
+                document.getElementById("walletAddress").innerHTML = res.data.address;
                 const walletAddress = res.data.address;
                 preAuth(walletAddress);
             })
@@ -97,7 +97,7 @@
                 .then(response => response.json())
                 .then(json => {
                     console.log(JSON.stringify(json));
-                    document.getElementById("result").innerHTML = JSON.stringify(json);
+                    document.getElementById("accessToken").innerHTML = JSON.stringify(json);
                 })
         } catch (error) {
             console.error(error);
@@ -111,6 +111,7 @@
 <span id="callAuthStatus">No Update</span><br />
 <br />
 <span id="signMessageStatus">No Update</span>
-<span id="result" style="color: white;">No Update</span>
+<span id="walletAddress" style="color: white;">No Update</span>
+<span id="accessToken" style="color: white;">No Update</span>
 
 </html>
