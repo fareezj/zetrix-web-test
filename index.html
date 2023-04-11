@@ -18,6 +18,7 @@
     zetrixConnect.connect(options);
     
     const sign = (signMessage) => {
+      console.log('SIGN MESSAGE: ' + signMessage);
       document.getElementById("test3").innerHTML = "Signing Now";
       zetrixConnect.signMessage({ message: signMessage })
         .then((res) => {
