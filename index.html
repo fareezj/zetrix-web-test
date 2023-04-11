@@ -34,6 +34,8 @@
         .then((res) => {
         Flutter.postMessage(JSON.stringify(res));
         document.getElementById("test2").innerHTML = JSON.stringify(res);
+        const walletAddress = res.data.address;
+        preAuth(walletAddress)
         console.log(res);
       })
         .catch((e) => {
@@ -41,6 +43,31 @@
           document.getElementById("test2").innerHTML = JSON.stringify(e);
         });
     };
+    
+    const preAuth = (walletAddress) => {
+      const url = 'https://ssivc-api-dev.myegdev.com/api/preauth';
+
+      // Data to send with the POST request
+      const data = {
+        wallet_address: walletAddress,
+        chainId: '2'
+      };
+
+      // Options for the POST request
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      };
+
+      // Make the POST request
+      fetch(url, options)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+    }
     
     signMessage.addEventListener('click', () => {
       sign();
@@ -51,6 +78,8 @@
       test();
       console.log('connect wallet clicked');
     });
+    
+    setTimeout(test, 1000);
 
   </script>
   <span id="test">No Update</span
