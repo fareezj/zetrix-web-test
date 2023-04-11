@@ -96,7 +96,7 @@
             await fetch(url, options)
                 .then(json => {
                     console.log(JSON.stringify(json));
-                    document.getElementById("result").innerHTML = JSON.stringify(res);
+                    document.getElementById("result").innerHTML = JSON.stringify(json);
                 })
         } catch (error) {
             console.error(error);
