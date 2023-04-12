@@ -19,7 +19,7 @@
     zetrixConnect.connect(options);
 
     const test = () => {
-        document.getElementById("callAuthStatus").innerHTML = "Calling Auth";
+        document.getElementById("loginStatus").innerHTML = "Loading...";
         zetrixConnect
             .auth()
             .then(async(res) => {
@@ -55,7 +55,7 @@
                 .then(response => response.json())
                 .then(json => {
                     console.log(JSON.stringify(json));
-                    setTimeout(() => sign(json.data.signMessage), 3000);
+                    setTimeout(() => sign(json.data.signMessage), 2000);
                 })
 
         } catch (error) {
@@ -64,7 +64,7 @@
     }
 
     const sign = (signMessage) => {
-        //document.getElementById("signMessageStatus").innerHTML = "Signing Now";
+        document.getElementById("loginStatus").innerHTML = "Hold on, Signing Message...";
         zetrixConnect.signMessage({ message: signMessage })
             .then( (res) => {
                 //document.getElementById("signMessageStatus").innerHTML = JSON.stringify(res);
@@ -112,12 +112,11 @@
     setTimeout(test, 1000);
 
 </script>
-<span id="callAuthStatus">No Update</span><br />
+<span id="loginStatus">No Update</span><br />
 <br />
-<span id="signMessageStatus">No Update</span>
-<span id="walletAddress" style="color: black;"></span>
-<span id="signBlob" style="color: black;"></span>
-<span id="publicKey" style="color: black;"></span>
-<span id="blob" style="color: black;"></span>
+<span id="walletAddress" style="color: white;"></span>
+<span id="signBlob" style="color: white;"></span>
+<span id="publicKey" style="color: white;"></span>
+<span id="blob" style="color: white;"></span>
 
 </html>
